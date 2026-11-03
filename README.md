@@ -55,3 +55,7 @@ osascript plugin/meeting.applescript status
 - **Keys do nothing:** check that VSD Craft has Accessibility permission.
 - **Logs:** the plugin writes `plugin.log` in the installed plugin folder.
 - **Device not detected through a USB-C/Thunderbolt dock:** power-cycle the dock.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
