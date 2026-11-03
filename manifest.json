@@ -1,0 +1,58 @@
+{
+  "SDKVersion": 1,
+  "Author": "Meeting Controls contributors",
+  "Name": "Meeting Controls",
+  "Description": "Mic and camera toggles for Zoom and Microsoft Teams (macOS).",
+  "Icon": "images/plugin",
+  "Version": "1.0.0",
+  "CodePath": "plugin/index.js",
+  "Category": "Meeting Controls",
+  "CategoryIcon": "images/plugin",
+  "Software": {
+    "MinimumVersion": "3.10.188.226"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "10.15"
+    }
+  ],
+  "Nodejs": {
+    "Version": "20"
+  },
+  "Actions": [
+    {
+      "UUID": "com.meetingcontrols.mic",
+      "Name": "Mic Toggle",
+      "Tooltip": "Mute/unmute mic in Zoom or Teams",
+      "Icon": "images/mic",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/mic",
+          "TitleAlignment": "bottom"
+        }
+      ],
+      "SupportedInMultiActions": true
+    },
+    {
+      "UUID": "com.meetingcontrols.cam",
+      "Name": "Camera Toggle",
+      "Tooltip": "Start/stop video in Zoom or Teams",
+      "Icon": "images/cam",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/cam",
+          "TitleAlignment": "bottom"
+        }
+      ],
+      "SupportedInMultiActions": true
+    }
+  ],
+  "CodePathMac": "plugin/index.js"
+}
