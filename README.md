@@ -1,12 +1,17 @@
 # Meeting Controls
 
-A free [VSD Craft](https://www.vsdinside.com/) (Stream Dock) plugin for macOS. It adds two keys that toggle your mic and camera in Zoom and Microsoft Teams.
+A free [VSD Craft](https://www.vsdinside.com/) (Stream Dock) plugin for macOS. It adds meeting keys for Zoom and Microsoft Teams.
 
 | Action | Zoom | Microsoft Teams |
 |---|---|---|
 | **Mic Toggle** | Clicks *Meeting → Mute/Unmute Audio* | Sends ⌘⇧M |
 | **Camera Toggle** | Clicks *Meeting → Start/Stop Video* | Sends ⌘⇧O |
-| **State on key** | Green (on) / red (off), polled every 2s | Not available; neutral icon |
+| **Share Screen** | Clicks *Meeting → Start/Stop Share* (falls back to ⌘⇧S) | Sends ⌘⇧E |
+| **Leave Meeting** | Clicks *Leave Meeting* (falls back to ⌘W); Zoom asks to confirm | Sends ⌘⇧H |
+| **Meeting Status** | Shows the app and a meeting timer while you're in a meeting | Same (in-call detection is experimental) |
+| **State on key** | Green (on) / red (off), polled every 2s; sharing shows orange | Not available; neutral icon |
+
+Leave Meeting needs two presses within 2 seconds. The first press turns the key amber and shows "Again?".
 
 How it handles each app:
 
@@ -43,7 +48,7 @@ plugin/index.js             WebSocket client: key events, state polling, renderi
 plugin/meeting.applescript  Does the work: toggle-mic | toggle-cam | status
 ```
 
-`meeting.applescript` prints one line, `<app> <mic> <cam>`. `app` is `zoom`, `teams`, or `none`; `mic` and `cam` are `on`, `off`, or `unknown`. You can test it on its own:
+`meeting.applescript` takes `toggle-mic`, `toggle-cam`, `toggle-share`, `leave`, `status` or `debug`. It prints one line, `<app> <mic> <cam> <share> <meeting>`. `app` is `zoom`, `teams`, or `none`; `mic`, `cam` and `share` are `on`, `off`, or `unknown`; `meeting` is `yes` or `no`. `debug` prints Zoom's menus and the Teams window titles, and the plugin logs it once at startup. You can test it on its own:
 
 ```sh
 osascript plugin/meeting.applescript status

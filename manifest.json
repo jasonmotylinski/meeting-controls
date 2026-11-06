@@ -2,7 +2,7 @@
   "SDKVersion": 1,
   "Author": "Meeting Controls contributors",
   "Name": "Meeting Controls",
-  "Description": "Mic and camera toggles for Zoom and Microsoft Teams (macOS).",
+  "Description": "Mic, camera, screen share, leave and meeting-timer keys for Zoom and Microsoft Teams (macOS).",
   "Icon": "images/plugin",
   "Version": "1.0.0",
   "CodePath": "plugin/index.js",
@@ -52,6 +52,54 @@
         }
       ],
       "SupportedInMultiActions": true
+    },
+    {
+      "UUID": "com.meetingcontrols.share",
+      "Name": "Share Screen",
+      "Tooltip": "Start/stop screen share in Zoom or Teams",
+      "Icon": "images/share",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/share",
+          "TitleAlignment": "bottom"
+        }
+      ],
+      "SupportedInMultiActions": true
+    },
+    {
+      "UUID": "com.meetingcontrols.leave",
+      "Name": "Leave Meeting",
+      "Tooltip": "Leave the meeting (press twice to confirm)",
+      "Icon": "images/leave",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/leave",
+          "TitleAlignment": "bottom"
+        }
+      ],
+      "SupportedInMultiActions": true
+    },
+    {
+      "UUID": "com.meetingcontrols.status",
+      "Name": "Meeting Status",
+      "Tooltip": "Shows whether you are in a meeting and for how long",
+      "Icon": "images/status",
+      "Controllers": [
+        "Keypad"
+      ],
+      "States": [
+        {
+          "Image": "images/status",
+          "TitleAlignment": "bottom"
+        }
+      ],
+      "SupportedInMultiActions": false
     }
   ],
   "CodePathMac": "plugin/index.js"
